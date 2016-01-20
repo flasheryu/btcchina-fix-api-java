@@ -61,17 +61,17 @@ public class BTCCMarketDataRequest {
 		
 		addMDType(tickerRequest, '0');
 		addMDType(tickerRequest, '1');
-		addMDType(tickerRequest, '2');
-		addMDType(tickerRequest, '3');
-		addMDType(tickerRequest, '4');
-		addMDType(tickerRequest, '5');
-		addMDType(tickerRequest, '6');
-		addMDType(tickerRequest, '7');
-		addMDType(tickerRequest, '8');
-		addMDType(tickerRequest, '9');
-		addMDType(tickerRequest, 'A');
-		addMDType(tickerRequest, 'B');
-		addMDType(tickerRequest, 'C');
+//		addMDType(tickerRequest, '2');
+//		addMDType(tickerRequest, '3');
+//		addMDType(tickerRequest, '4');
+//		addMDType(tickerRequest, '5');
+//		addMDType(tickerRequest, '6');
+//		addMDType(tickerRequest, '7');
+//		addMDType(tickerRequest, '8');
+//		addMDType(tickerRequest, '9');
+//		addMDType(tickerRequest, 'A');
+//		addMDType(tickerRequest, 'B');
+//		addMDType(tickerRequest, 'C');
 	   	    
 	    return tickerRequest;
 	}

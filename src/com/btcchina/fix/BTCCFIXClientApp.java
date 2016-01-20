@@ -80,6 +80,7 @@ public class BTCCFIXClientApp  implements quickfix.Application {
 //				message = BTCCMarketDataRequest.marketDataIncrementalRequest("LTCBTC");	
 //				message = BTCCMarketDataRequest.marketDataIncrementalRequest("LTCCNY");	
 //				message = BTCCMarketDataRequest.marketDataIncrementalRequest("BTCCNY");	
+//				message = BTCCMarketDataRequest.marketDataIncrementalRequest("XBTCNY");	
 //				Session.lookupSession(sessionID).send(message);				
 //				try {
 //					Thread.sleep(5000);
@@ -89,15 +90,17 @@ public class BTCCFIXClientApp  implements quickfix.Application {
 //				}
 					
 				//MARKET DATA SNAPSHOT FULL REFRESH REQUEST (V)
-//				message = BTCCMarketDataRequest.marketDataFullSnapRequest("LTCCNY");
-//				Session.lookupSession(sessionID).send(message);		
-//				try {
-//					Thread.sleep(10000);
-//				} catch (InterruptedException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-				
+				while(true)
+				{
+					message = BTCCMarketDataRequest.marketDataFullSnapRequest("XBTCNY");
+					Session.lookupSession(sessionID).send(message);
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
 				//UNSUBSCRIBE MARKET DATA INCREMENTAL REFRESH (V)
 //				message = BTCCMarketDataRequest.unsubscribeIncrementalRequest("LTCCNY");	
 //				Session.lookupSession(sessionID).send(message);
@@ -108,11 +111,11 @@ public class BTCCFIXClientApp  implements quickfix.Application {
 //					e.printStackTrace();
 //				}
 				
-				String ACCESS_KEY = "<YOUR ACCESS KEY>";
-			    String SECRET_KEY = "<YOUR SECRET KEY>";
+//				String ACCESS_KEY = "<YOUR ACCESS KEY>";
+//			    String SECRET_KEY = "<YOUR SECRET KEY>";
 			    
-			    BTCCTradingRequest tradeRequest=new BTCCTradingRequest();
-			    try{
+//			    BTCCTradingRequest tradeRequest=new BTCCTradingRequest();
+//			    try{
 				    
 				    //limit order on market BTCCNY/LTCCNY/LTCBTC
 //				    message = tradeRequest.createNewOrderSingle(ACCESS_KEY, SECRET_KEY, Side.SELL, OrdType.LIMIT, 10000, 0.0001, "BTCCNY"); // integer not supported??
@@ -145,12 +148,12 @@ public class BTCCFIXClientApp  implements quickfix.Application {
 //				    message = tradeRequest.createOrderStatusRequest(ACCESS_KEY, SECRET_KEY, "BTCCNY",42663920);
 				    
 				    //get 1000 latest open orders
-				    message = tradeRequest.createOrderMassStatusRequest(ACCESS_KEY, SECRET_KEY,"BTCCNY");
+//				    message = tradeRequest.createOrderMassStatusRequest(ACCESS_KEY, SECRET_KEY,"BTCCNY");
 				    
-				    Session.lookupSession(sessionID).send(message);
-			    } catch (Exception e){
-			    	log.info("Exception in trading request: "+e.toString());
-			    }
+//				    Session.lookupSession(sessionID).send(message);
+//			    } catch (Exception e){
+//			    	log.info("Exception in trading request: "+e.toString());
+//			    }
 			}
 		}).start();
 		
